@@ -1,10 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @list %>
+<div class="card-hero-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1722449304165-5ae436a656d8?q=80&w=1680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+  Save any kind of movies
+</div>
 
-<div>
-  <%= link_to "Edit this list", edit_list_path(@list) %> |
-  <%= link_to "Back to lists", lists_path %>
 
-  <%= button_to "Destroy this list", @list, method: :delete %>
+<div id="movies" style="padding: 20px">
+  <%= link_to "Add a bookmark", "#" %>
+
+  <div class="movies-container">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="movie-card">
+      <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %> poster">
+      <div class="movie-info">
+        <h2><%= bookmark.movie.title %> <span class="rating">• <%= bookmark.movie.rating %> ⭐</span></h2>
+        <p class="overview"><%= bookmark.movie.overview %></p>
+        <p class="comment">❝ <%= bookmark.comment %> ❞</p>
+        <%= link_to "delete", bookmark_path(bookmark), class: "delete-btn", data: { turbo_method: :delete } %>
+      </div>
+    </div>
+  <% end %>
 </div>

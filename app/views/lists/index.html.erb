@@ -1,14 +1,38 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Lists</h1>
 
-<div id="lists">
-  <% @lists.each do |list| %>
-    <%= render list %>
-    <p>
-      <%= link_to "Show this list", list %>
-    </p>
-  <% end %>
+<nav class="navbar">
+  <div class="navbar-left">
+
+  <%= image_tag 'retro-movie-logo.png', alt: "Logo", class: "logo" %>
+
+  </div>
+  <div class="navbar-right">
+    <%= link_to "My lists", lists_path, class: "nav-link" %>
+    <%= link_to "New list", new_list_path, class: "nav-link" %>
+  </div>
+</nav>
+
+
+<div class="card-hero-list" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1722449304165-5ae436a656d8?q=80&w=1680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+  Save any kind of movies
 </div>
 
-<%= link_to "New list", new_list_path %>
+
+<div class="container my-5">
+  <div class="list-header">
+    <h2>My Lists</h2>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-success" %>
+  </div>
+
+  <div class="lists-container">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list), class: "list-card-link" do %>
+
+      <div class="list-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1722449304165-5ae436a656d8?q=80&w=1680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+        <h3><%= list.name %></h3>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,7 +1,4 @@
-<div id="<%= dom_id list %>">
-  <p>
-    <strong>Name:</strong>
-    <%= list.name %>
-  </p>
-
+<div class="list">
+  <h2><%= list.name %></h2>
+  <%= link_to "View List", list_path(list) %>
 </div>

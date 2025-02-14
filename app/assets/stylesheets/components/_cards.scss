@@ -1,0 +1,41 @@
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.lists-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.list-card-link {
+  text-decoration: none; /* 移除預設底線 */
+}
+
+.list-card {
+  width: 300px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-success {
+  background-color: #16db65;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
